@@ -1,0 +1,408 @@
+#header{
+    border-bottom: 1px solid #ccc;
+    .container{
+        .row{
+            >div{
+                height: 40px;
+                line-height: 40px;
+                font-size: 12px;
+                a{
+                    color: #666;
+                }
+                .link{
+                    display: block;
+                    position: relative;
+                    img{
+                        position: absolute;
+                        top:40px;
+                        left:50%;
+                        transform: translateX(-50%);
+                        display: none;
+                        z-index: 999;
+                    }
+                    &:hover{
+                        img{
+                            display:block;
+                        }
+                    }
+                   
+                }
+                &~div{
+                    border-left:1px solid #666;
+                }
+                .btn-link{
+                    color: #666;
+                }
+                .form-horizontal .control-label{
+                    padding-top: 0;
+                }
+            }
+            
+            
+            
+            
+        }
+    }
+    
+}
+/* 导航区域 */
+@main-color:red;
+#nav {
+    background-color: #fff;
+    // 去掉默认导航条底部margin间距
+    margin-bottom: 0;
+    z-index: 997;
+    // 吸顶的时候没有默认100%的宽度
+    width: 100%;
+    // 默认不会到最顶上设置一个top
+    top: 0;
+    // 导航条头部 里面包含按钮 左边的logo
+    .navbar-header {
+        // 移动端切换的菜单按钮 
+        .navbar-toggle{
+            // 因为他默认有8  现在整个导航多加了30px 上下是15px 8 + 15px
+            margin-top: 8px+15px;
+        }
+        .navbar-brand {
+            height: 80px;
+            // 因为a默认有上下padding 15px 给了80 内容只有50 行高只有50px
+            line-height: 50px;
+
+            i {
+                font-size: 30px;
+            }
+
+            .icon-icon {
+                color: @main-color;
+
+            }
+
+            .icon-logo {
+                color: #333;
+
+            }
+        }
+    }
+
+    // 导航条的身体 包含了左右的导航链接
+    .navbar-collapse {
+        // 所有链接
+        .navbar-nav{
+            li{
+                a{
+                    height: 80px;
+                    // 也是有上下padding  -30px
+                    line-height: 50px;
+                    &:hover{
+                        border-bottom: 2px solid @main-color;
+                    }
+                }
+                &.active{
+                    a{
+                        background-color: #fff;
+                        border-bottom: 2px solid @main-color;
+                    }
+                }
+            }
+            // li.active{}
+        }
+    }
+}
+// //导航区域
+// #nav{
+//     background-color: #fff;
+//     margin: 0;
+//     .container{
+//         // .nav{
+//         //     background-color: #fff;
+//         // }
+//         .navbar-brand{
+            
+//                 height: 80px;
+//                 .icon-icon{
+//                     font-size:30px;
+//                     color: red;
+//                 }
+//             .icon-logo{
+//                 font-size:30px;
+//                 line-height: 50px;
+//                 color:black;
+//             }
+            
+//         }
+//         .nav{
+//             .active{
+//                 background-color: #fff;
+//                 border-bottom: 2px solid red;
+//             }
+//             li{
+//                 // box-sizing: border-box;
+               
+//                 &~li:hover{
+//                     border-bottom: 2px solid red;
+//                 }
+//                 a{
+//                     height: 80px;
+//                     line-height: 50px;
+//                 }
+//             }
+//         }
+//         .navbar-right{
+//             li:hover{
+//                 border-bottom: 2px solid red;
+//             }
+//         }
+                      
+//     }
+// }
+
+
+//轮播图区域
+#slide{
+   .large-img{
+       height: 410px;
+        background-position: center;
+   }
+   .small-img{
+       width: 100%;
+   }
+}
+
+//feature
+#feature{
+    padding: 40px;
+    .media{
+        a{
+            color:#666;
+            &:hover{
+                text-decoration: none;
+                color:@main-color;
+            }
+        }
+    }
+}
+
+//预约区域
+#booking{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    .text-danger{
+        color: red;
+    }
+}
+
+//商品区域
+#products{
+    padding: 40px;
+    background-color: #eee;
+    .nav-tabs{
+        li{
+            a{
+                color: #333;
+                border: 0;
+                font-size: 16px;
+                font-weight: 600;
+                &:hover{
+                    background-color:transparent;
+                }
+
+            }
+            &.active{
+                a{
+                   background-color:transparent;
+                   border-bottom: 2px solid @main-color;  
+                }
+                
+            }
+        }
+    }
+    //商品内容
+    .tab-content{
+        .product{
+            display: flex;
+            background-color: #fff;
+            margin-top: 20px;
+            &.active{
+                background-color: @main-color;
+                color: #fff;
+                position: relative;
+                &::before{
+                    // 如果不使用类名也可以使用图标 只要使用图标的编码+字体名称即可
+                    content: "\e915";
+                    font-family: itcast;
+                    font-size: 30px;
+                    position: absolute;
+                    top: -6px;
+                }
+            }
+
+            .left{
+                flex:1;
+                padding: 15px;
+                .title{
+                    text-align: center;
+                }
+                .content{
+                    .row{
+                        .div{
+                            &:nth-child(2n){
+                                 text-align: right;
+                                 margin-bottom: 10px;
+                            }
+                            p{
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                width: 120px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-left: 1px dashed #666;
+                position: relative;
+                // 使用媒体查询针对某些有问题屏幕 进行样式调整
+                // 在340屏幕以下右边应该变小
+                @media(max-width: 340px){
+                    width: 100px;
+                }
+                // 在992 到 1200之间也要变小一点
+                @media(min-width: 992px) and (max-width:1200px){
+                    width: 100px;
+                }
+                p{
+                    margin-bottom: 0;
+                    strong{
+                        font-size: 30px;
+                    }
+                }
+                &::before,&::after{
+                    content:'';
+                    position: absolute;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #eee;
+                    left:-8px;
+                    border-radius: 50%;
+                }
+                &::before{
+                    top:-8px;
+                }
+                &::after{
+                    bottom: -8px;
+                }
+                .tooltips{
+                    position: absolute;
+                    top:20px;
+                    width: 100%;
+                    text-align: center;
+                    button{
+                        background-color: #fff;
+                        &:first-child{
+                            border: 1px solid @main-color;
+                            color: @main-color;
+                            
+                        }
+                        &:last-of-type{
+                            border:1px solid #0f0;
+                            color:#0f0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//新闻区域
+#news{
+    padding: 40px;
+    .row{
+        >div{
+            h4{
+                text-align: center;
+                line-height: 40px;
+                border-bottom: 1px dashed #ccc;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    right: -10px;
+                    bottom: -5px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border:1px solid #ccc;
+                }
+            }
+            .nav-tabs{
+                border-bottom: 0;
+                // 当小和超小屏幕991及以下的时候需要让li平分1/4 让a居中
+                @media(max-width:991px){
+                    li{
+                        width: 25%;
+                        a{
+                            // a固定宽度 因为a是块级元素会和li宽度一样 所以要固定为60px
+                            width: 60px;
+                            // 因为是块级元素只能使用margin:0 auto; 居中
+                            margin: 0px auto;
+                            
+                        }
+                    }
+                }
+                li{
+                                                        
+                    a{
+                        border-radius: 50%;
+                        margin-bottom: 20px;
+                        border: 0;
+                        color: #ccc;
+                        i{
+                            font-size: 30px;
+                        }
+                        &:hover{
+                            background-color: @main-color;
+                        }
+                    }
+                    &.active{
+                        a{
+                           background-color:@main-color;  
+                        }
+                       
+                    }
+                }
+            }
+            .tab-content{
+                .list-group-item{
+                    border:0;
+                }
+            }
+        }
+    }
+}
+//合作伙伴
+#footer{
+    .title{
+        padding: 20px;
+        h3{
+            text-align: center;
+        }
+    }
+    .content{
+        a{
+            display: block;
+            color: #666;
+            text-align: center;
+            text-decoration: none;
+            &:hover{
+                color: @main-color;
+            }
+            i{
+                font-size: 60px;
+            }
+        }
+    }
+}
